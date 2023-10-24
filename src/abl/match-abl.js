@@ -80,25 +80,19 @@ async function getMatch(req, res) {
 }
 
 async function listMatches(req, res) {
-  const summonerNames = req.query?.summonerNameList?.split(",") || [];
   const championNames = req.query?.championNameList?.split(",") || [];
   const pageIndex = parseInt(req.query?.pageIndex) || 0;
   const pageSize = parseInt(req.query?.pageSize) || 10;
 
   await validate(
     Schemas.listSchema,
-    { summonerNames, championNames, pageInfo: { pageIndex, pageSize } },
+    { championNames, pageInfo: { pageIndex, pageSize } },
     Error.List.InvalidInput
   );
 
   const filter = {
     $expr: {
       $and: [
-        summonerNames.length
-          ? {
-              $setIsSubset: [summonerNames, "$info.participants.summonerName"],
-            }
-          : {},
         championNames.length
           ? {
               $setIsSubset: [championNames, "$info.participants.championName"],

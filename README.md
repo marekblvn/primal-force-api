@@ -35,7 +35,7 @@ url: ".../api/match/get/?id="..."
 ### match/list
 #### Input data
 ```javascript
-url: ".../api/match/list?summonerNameList=...,...&championNameList=...,...&pageIndex=0&pageSize=10"
+url: ".../api/match/list?championNameList=...,...&pageIndex=0&pageSize=10"
 ```
 #### Output data
 ```javascript

@@ -15,7 +15,6 @@ const deleteSchema = Joi.object({
 });
 
 const listSchema = Joi.object({
-  summonerNameList: Joi.array().items(Joi.string()),
   championNameList: Joi.array().items(Joi.string()),
   pageInfo: Joi.object({
     pageIndex: Joi.number(),
