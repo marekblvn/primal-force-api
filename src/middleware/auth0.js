@@ -1,8 +1,8 @@
 const { auth } = require("express-oauth2-jwt-bearer");
 
 const validateAccessToken = auth({
-  audience: "https://primal-force-5293a17051c5.herokuapp.com/",
-  issuerBaseURL: "https://dev-wdjg5l36.us.auth0.com/",
+  audience: process.env.AUTH0_AUDIENCE,
+  issuerBaseURL: process.env.AUTH0_ISSUER_BASE_URL,
   tokenSigningAlg: "RS256",
 });
 
